@@ -11,7 +11,7 @@ googlesearch_python==1.0.1
 ipaddress
 bs4
 
-sklearn
+scikit-learn
 python-whois
 matplotlib
 seaborn
