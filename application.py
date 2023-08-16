@@ -20,7 +20,8 @@ file.close()
 
 # print("model load end")
 
-app = Flask(__name__)
+application = Flask(__name__)
+app=application
 
 @app.route('/')
 @cross_origin()
