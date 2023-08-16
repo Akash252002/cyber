@@ -16,3 +16,4 @@ python-whois
 matplotlib
 seaborn
 xgboost
+flask_cors

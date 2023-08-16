@@ -1,6 +1,8 @@
 import os
 import sys
 
+from flask_cors import CORS,cross_origin
+
 from flask import Flask, render_template, request, redirect
 import numpy as np
 import warnings
@@ -47,28 +49,6 @@ def index():
             result = f"The site is {round(y_pro_phishing,2)*100} % unsafe ❌"
         return render_template('index.html',result = result)
     return render_template("index.html")
-
-@app.route("/train")
-@cross_origin()
-def train_route():
-    try:
-        train_pipeline = TraininingPipeline()
-        train_pipeline.run_pipeline()
-
-        return "Training Completed."
-
-    except Exception as e:
-        raise CustomException(e,sys)
-
-@app.route('/report')
-@cross_origin()
-def report():
-   return render_template('index.html')
-
-@app.route('/data')
-@cross_origin()
-def data():
-    return redirect('https://www.sciencedirect.com/science/article/pii/S2352340920313202')
 
 if __name__ == '__main__':
     app.run(debug=True)
